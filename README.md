@@ -213,14 +213,26 @@ Beispielhafte Ausgabe:
 Hinweis
 Um die Fläche zu berechnen, multiplizieren Sie die Länge mit der Breite. In diesem Fall 5.4*2.3=12.42
 
-static void Main(string[] args)
+using System;
+
+namespace I2bCsharp
 {
-  //Seiten des Raumes
-  double length;
-  double width;
-  length = Convert.ToDouble(Console.ReadLine());
-  width = Convert.ToDouble(Console.ReadLine());
-  //Ausgabe der Fläche
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Länge des Raumes: ");
+            //Seiten des Raumes
+            double length;
+            double width;
+            length = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Breite des Raumes: ");
+            width = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Der Raum ist: " + length * width + " m^2 gross");
+        }
+
+    }
 }
 
 Beachten Sie, dass die Variablen für die Längen vom Typ double sind, was es uns ermöglicht, Berechnungen mit den numerischen Fließkommatypen (reelle Zahlen) durchzuführen.
@@ -234,6 +246,7 @@ int x = 16;
 int y = 5;
 Console.WriteLine(x/y);
 
+3
 
 Frage 19:
 Modulo
@@ -249,6 +262,27 @@ Beispielhafte Ausgabe
 
 Verwenden Sie den Modulo-Operator %, um den Rest zu berechnen.
 
+using System;
+
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie die Anzahl der Personen an: ");
+
+            int personen = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geben sie die Anzahl der Biere an: ");
+            int bier = Convert.ToInt32(Console.ReadLine());
+
+            int übrigebier = bier % personen ;
+            Console.WriteLine("Es sind: "+übrigebier +" Biere übrig");
+        }
+
+    }
+}
+
 
 Frage 20:
 Zuweisungsoperatoren
@@ -260,7 +294,24 @@ Beispiel Eingabe: 800
 Beispiel Ausgabe: 9600
 
 int Gehalt = Convert.ToInt32(Console.ReadLine());  
-          //Ihr Code kommt hier hin
+
+using System;
+
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie ihr MOnats einkommen an: ");
+
+            int einkommen = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Sie verdienen " + einkommen * 12 + " CHF im Jahr");
+          
+        }
+
+    }
+}
 
 
 Frage 21:
@@ -270,6 +321,8 @@ int a = 4;
 int b = 6;
 b = a++;
 Console.WriteLine(++b);
+
+6
 
 
 Frage 22:
@@ -285,6 +338,26 @@ Beispiel Eingabe: 5
 Beispielhafte Ausgabe: 78.5
 
 Hinweis: Denken Sie daran, den eingegebenen Wert in den Typ double zu konvertieren.
+
+using System;
+
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie den Kreis Radius an: ");
+            const double pi = 3.14159;
+
+            double raduis = Convert.ToDouble(Console.ReadLine());
+            double fläche = Math.Pow(raduis * pi,2);
+            Console.WriteLine("Der Kreis ist " + fläche + " gross");
+          
+        }
+
+    }
+}
 
 
 Frage 23:
@@ -302,24 +375,28 @@ Zu erwartende Ausgabe:
 Erledigt
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-namespace IMS
+
+namespace I2bCsharp
 {
-  class Program
+    class Program
     {
-    static void Main(string[] args)
-      {
-      double payment = Convert.ToDouble(Console.ReadLine());
-      double balance = Convert.ToDouble(Console.ReadLine());
-      //hier kommt dein Code
-
-      }
-   }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie den Preis an: ");
+            double payment = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Geben sie ihr Geld an: ");
+            double balance = Convert.ToDouble(Console.ReadLine());
+            
+            if (balance >= payment)
+            {
+                Console.WriteLine("Zahlung erfolgreich");
+            } else
+            {
+                Console.WriteLine("Saldo zu klein");
+            }
+        }
+    }
 }
-
 
 Frage 24:
 switch
@@ -335,20 +412,42 @@ Hier sind die Themen durch entsprechende Nummern gekennzeichnet:
 
 Schreiben Sie ein Programm, das die Nummer als Eingabe nimmt und den entsprechenden Themennamen ausgibt.
 
-Beispiel Eingabe
-1
+using System;
 
-int num = Convert.ToInt32(Console.ReadLine());
-/*
-1 - Sports
-2 - Politics
-3 - Business
-4 - Technology
-5 - Art
-*/
-//hier kommt dein Code
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie ihre Intresse an: " +
+                " 1 - Sports" +
+                " 2 - Politics" +
+                " 3 - Business" +
+                " 4 - Technology" +
+                " 5 - Art");
+            int num = Convert.ToInt32(Console.ReadLine());
 
-Denken Sie daran, jeden Fall mit der break-Anweisung zu beenden.
+            switch (num)
+            {
+                case 1: Console.WriteLine("Sports");
+                    break;
+                case 2: Console.WriteLine("Politics");
+                    break;
+                case 3: Console.WriteLine("Business");
+                    break;
+                case 4:
+                    Console.WriteLine("Technology");
+                    break;
+                case 5:
+                    Console.WriteLine("Art");
+                    break;
+
+            }
+
+        }
+    }
+}
 
 
 
@@ -367,15 +466,38 @@ Beispielhafte Ausgabe
 8
 
 
-static void Main(string[] args)
+using System;
+
+namespace I2bCsharp
 {
-  int num = Convert.ToInt32(Console.ReadLine());
-  int res = 1;
-  //hier kommt dein Code
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie ihre Zahl an: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int res = 1;
+
+            while (true)
+            {
+                if (res % 2 == 0)
+                {
+                    Console.WriteLine(res);                
+                        }
+
+
+                if(num == res)
+                {
+                    break;
+                }
+                res++;
+            }
+
+        }
+    }
 }
 
 
-Jede ganze Zahl, die sich genau durch 2 teilen lässt, ist eine gerade Zahl.
 	
 
 Frage 26:
@@ -391,12 +513,24 @@ Eingabebeispiel
 Beispielhafte Ausgabe
 10
 
-static void Main(string[] args)
+
+namespace I2bCsharp
 {
-  int N = Convert.ToInt32(Console.ReadLine());
-  int sum = 0;
-  //hier kommt dein Code
-  Console.WriteLine(sum);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            //hier kommt dein Code
+            for (int i  = 1; i  <= N; i++)
+            {
+                sum = i + sum;
+            }
+            Console.WriteLine(sum);
+
+        }
+    }
 }
 
 
@@ -422,10 +556,35 @@ Die erste Eingabe stellt das Maximalgebot dar, gefolgt von den Geboten aller Tei
 Hinweis
 Um eine kontinuierliche Eingabeannahme zu ermöglichen, müssen Sie eine while(true)-Bedingung verwenden. Dieser Teil des Codes nimmt zum Beispiel unendlich viele Eingaben an:
 
-while(true) 
-{ 
-   string smth = Console.ReadLine(); 
-} 
+using System;
+
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Geben sie ein Höchstgebot an: ");
+            int höchstgebot = Convert.ToInt32(Console.ReadLine());
+
+            while (true)
+            {
+
+                int gebot = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Neues höchstes Gebot: " + gebot);
+
+
+
+                if (gebot >= höchstgebot)
+                {
+                    break;
+                    Console.WriteLine("Das höchstes Gebot war: " + gebot);
+                }
+            }
+
+        }
+    }
+}
 
 Verwenden Sie eine if-Anweisung innerhalb der Schleife, um die Abbruchbedingung auszuführen.
 
@@ -448,22 +607,40 @@ Beispiel Ausgang
 
 Erläuterung
 Die erste Eingabe stellt die Anzahl der gekauften Artikel dar, gefolgt von deren Preisen. Da 235 eine ungerade Zahl ist, sollen nur 140 und 100 addiert werden: 140+100 = 240.
+using System;
 
-int amount = Convert.ToInt32(Console.ReadLine());
-
-int count = 0;
-int totalAmount = 0;
-while (count<amount)
+namespace I2bCsharp
 {
-  count++;
-  int price = Convert.ToInt32(Console.ReadLine());
-  //überspringe die ungeraden Zahlen
-  totalAmount += price;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("geben sie die Anzahl der Produkte an");
+            int amount = Convert.ToInt32(Console.ReadLine());
+
+            int count = 0;
+            int totalAmount = 0;
+            while (count < amount)
+            {
+                count++;
+                Console.WriteLine("geben sie den Preis des Produktes an");
+                int price = Convert.ToInt32(Console.ReadLine());
+                if (price % 2 == 0)
+                { 
+              
+                    totalAmount += price;
+                } else
+                {
+                    continue;
+                }
+               
+            }
+            Console.WriteLine(totalAmount);
+        }
+
+        
+    }
 }
-Console.WriteLine(totalAmount);
-
-Verwenden Sie die continue-Anweisung, um die Schleifeniterationen zu überspringen, bei denen die Anzahl ungerade ist.
-
 
 Frage 29:
 Logische Operatoren
@@ -480,9 +657,33 @@ Abgelehnt
 
 Verwenden Sie den &&-Operator, um die Bedingungen zu verketten
 
-int attendance = Convert.ToInt32(Console.ReadLine());
-int avgScore = Convert.ToInt32(Console.ReadLine());
-//hier kommt dein Code
+using System;
+
+namespace I2bCsharp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            System.Console.WriteLine("Geben sie ihre Awensheit an: ");
+            int attendance = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Geben sie ihre Durchschnittsnote an");
+            int avgScore = Convert.ToInt32(Console.ReadLine());
+            if (attendance >= 95 && avgScore >= 80)
+            {
+                System.Console.WriteLine("Stipendium bekommen");
+            }
+            else
+            {
+                System.Console.WriteLine("Stipendium abgelehnt");
+            }
+
+        }
+
+
+    }
+}
 
 
 Frage 30:
@@ -500,11 +701,35 @@ Beispiel Ausgabe
 
 Die Zahl N ist ein Vielfaches von 3, wenn N%3==0.
 
-static void Main(string[] args)
+using System;
+
+namespace I2bCsharp
 {
-  int number = Convert.ToInt32(Console.ReadLine());
-  //hier steht dein Code
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            System.Console.WriteLine("Geben sie N an: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+
+
+            for (int i = 0; i <= n; i++)
+            {
+
+                if (i % 3 == 0)
+                {
+                    Console.WriteLine("*,");
+                    continue;
+                }
+                Console.WriteLine(i + ",");
+            }
+
+        }
+
+
+    }
 }
 
-![image](https://user-images.githubusercontent.com/72823328/168743531-7c42e95d-fff4-43b7-9a3c-501fed8c8b75.png)
 ```
